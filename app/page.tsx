@@ -8,6 +8,7 @@ export default function Home() {
       {/* Hero */}
       <section
         className="hero"
+        data-navbg="light"
         style={{ backgroundImage: "url(/images/Website-Hero-Andrew-Smiling.webp)" }}
       >
         <div className="hero__inner">
@@ -23,6 +24,7 @@ export default function Home() {
       <section
         id="music"
         className="section section--fixed"
+        data-navbg="dark"
         style={{ backgroundImage: "url(/images/HomeMusicBackground.webp)" }}
       >
         <div className="section__overlay" />
@@ -74,6 +76,7 @@ export default function Home() {
       <section
         id="guest"
         className="section section--fixed"
+        data-navbg="dark"
         style={{ backgroundImage: "url(/images/HomeGuestBackground.webp)" }}
       >
         <div className="section__overlay" />
@@ -98,6 +101,7 @@ export default function Home() {
       <section
         id="sound-bath"
         className="section section--fixed section--no-overlay"
+        data-navbg="dark"
         style={{ backgroundImage: "url(/images/HomeSoundBathBackground.webp)" }}
       >
         <div className="section__inner">
@@ -116,6 +120,7 @@ export default function Home() {
       <section
         id="about"
         className="section section--fixed"
+        data-navbg="dark"
         style={{ backgroundImage: "url(/images/aboutmain.webp)" }}
       >
         <div className="section__overlay" />
@@ -134,6 +139,7 @@ export default function Home() {
       <section
         id="contact"
         className="section contact"
+        data-navbg="light"
         style={{ backgroundImage: "url(/images/blueyellow.webp)" }}
       >
         <div className="contact__grid">

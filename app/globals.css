@@ -5,7 +5,7 @@
   --light: #f5f5f5;
   --title: #e4cfa3; /* earthy warm off-white fallback for display titles */
   --body: #ece7dc; /* subtle warm off-white for body copy over imagery */
-  --nav-h: 74px;
+  --nav-h: 48px;
   --letter: 0.18em;
 }
 
@@ -51,28 +51,33 @@ img {
   justify-content: space-between;
   padding: 0 clamp(20px, 4vw, 48px);
   z-index: 100;
-  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease,
+    box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
-.nav--solid {
-  background: rgba(120, 120, 120, 0.92);
-  backdrop-filter: blur(6px);
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+/* Frosted-glass bar that fades in once the user scrolls */
+.nav--frost {
+  background: rgba(247, 244, 237, 0.6);
+  -webkit-backdrop-filter: blur(14px) saturate(1.3);
+  backdrop-filter: blur(14px) saturate(1.3);
+  border-bottom-color: rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.07);
 }
 
 .nav__brand {
   font-size: 15px;
   letter-spacing: 0.22em;
   font-weight: 500;
-  color: var(--title);
+  color: #2b241c;
   text-transform: uppercase;
   white-space: nowrap;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
   transition: color 0.25s ease;
 }
 
 .nav__brand:hover {
-  color: #f8f0da;
+  color: #000;
 }
 
 .nav__menu {
@@ -89,20 +94,36 @@ img {
 }
 
 .nav__link {
+  position: relative;
   font-size: 12.5px;
+  font-weight: 500;
   letter-spacing: 0.14em;
-  color: var(--title);
+  color: #2b241c;
   text-transform: capitalize;
   transition: color 0.25s ease;
   white-space: nowrap;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
-  padding-bottom: 3px;
-  border-bottom: 1px solid transparent;
+}
+
+/* Underline drawn as an overlay so it never shifts the text off-center */
+.nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: #b98a4c;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s ease;
 }
 
 .nav__link:hover {
-  color: #f8f0da;
-  border-bottom-color: rgba(228, 207, 163, 0.8);
+  color: #000;
+}
+
+.nav__link:hover::after {
+  transform: scaleX(1);
 }
 
 .nav__social {
@@ -114,21 +135,27 @@ img {
 
 .nav__social a {
   display: inline-flex;
-  color: var(--title);
-  filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.35));
+  color: #2b241c;
   transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .nav__social a:hover {
-  color: #f8f0da;
+  color: #000;
   transform: translateY(-2px);
+}
+
+.nav__brand,
+.nav__link,
+.nav__social a,
+.nav__toggle {
+  transition: color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
 
 .nav__toggle {
   display: none;
   background: none;
   border: 0;
-  color: #fff;
+  color: #2b241c;
   cursor: pointer;
   padding: 6px;
 }
@@ -459,11 +486,25 @@ img {
     display: inline-flex;
   }
 
+  /* The mobile dropdown panel is always light, so its links stay dark
+     regardless of the section theme behind the top bar */
+  .nav__menu .nav__link,
+  .nav__menu .nav__social a {
+    color: #2b241c;
+  }
+
+  .nav__menu .nav__link:hover,
+  .nav__menu .nav__social a:hover {
+    color: #000;
+  }
+
   .nav__menu {
     position: fixed;
     inset: var(--nav-h) 0 auto 0;
     margin-left: 0;
-    background: rgba(30, 30, 30, 0.97);
+    background: rgba(247, 244, 237, 0.98);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
     backdrop-filter: blur(8px);
     flex-direction: column;
     align-items: flex-start;
@@ -494,13 +535,6 @@ img {
     margin-left: 0;
     margin-top: 10px;
   }
-}
-
-/* ---------- Nav legibility over transparent hero (no overlay) ---------- */
-.nav:not(.nav--solid) .nav__brand,
-.nav:not(.nav--solid) .nav__link,
-.nav:not(.nav--solid) .nav__social a {
-  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.4);
 }
 
 /* ---------- Section without overlay (full saturation) ---------- */

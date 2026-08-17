@@ -12,6 +12,7 @@ export default function SoundBathPage() {
     <>
       <section
         className="section"
+        data-navbg="dark"
         style={{ backgroundImage: "url(/images/SoundBathBackground.webp)" }}
       >
         <div className="section__overlay" />
@@ -31,7 +32,7 @@ export default function SoundBathPage() {
         </div>
       </section>
 
-      <div className="prose">
+      <div className="prose" data-navbg="light">
         <div className="prose__inner">
           <p className="eyebrow">Ambient Soundscapes</p>
           <h2>Space to Rest</h2>

@@ -12,6 +12,7 @@ export default function GuestPage() {
     <>
       <section
         className="section"
+        data-navbg="dark"
         style={{ backgroundImage: "url(/images/GuestBackground.webp)" }}
       >
         <div className="section__overlay" />
@@ -27,7 +28,7 @@ export default function GuestPage() {
         </div>
       </section>
 
-      <div className="prose">
+      <div className="prose" data-navbg="light">
         <div className="prose__inner">
           <p className="eyebrow">The Music</p>
           <h2>Songs and Stories</h2>
@@ -44,12 +45,12 @@ export default function GuestPage() {
         </div>
       </div>
 
-      <div className="media-row">
+      <div className="media-row" data-navbg="light">
         <img src="/images/TGATH-Andrew.webp" alt="Andrew Heringer" />
         <img src="/images/GuestImage.webp" alt="The Guest and the Host" />
       </div>
 
-      <div className="media-full">
+      <div className="media-full" data-navbg="light">
         <img src="/images/Band.webp" alt="The band performing live" />
       </div>
     </>

@@ -6,18 +6,18 @@ import { NAV_LINKS, SOCIAL } from "./site";
 import { InstagramIcon, SpotifyIcon, MenuIcon, CloseIcon } from "./icons";
 
 export default function Nav() {
-  const [solid, setSolid] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setSolid(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <header className={`nav ${solid || open ? "nav--solid" : ""}`}>
+    <header className={`nav ${scrolled ? "nav--frost" : ""} ${open ? "nav--open" : ""}`}>
       <Link href="/" className="nav__brand" onClick={() => setOpen(false)}>
         Andrew Heringer
       </Link>

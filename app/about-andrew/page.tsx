@@ -12,6 +12,7 @@ export default function AboutPage() {
     <>
       <section
         className="section"
+        data-navbg="dark"
         style={{ backgroundImage: "url(/images/AboutBackground.webp)" }}
       >
         <div className="section__overlay" />
@@ -24,7 +25,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="prose">
+      <div className="prose" data-navbg="light">
         <div className="prose__inner">
           <img
             src="/images/AboutAndrew.webp"
@@ -51,7 +52,7 @@ export default function AboutPage() {
         </div>
       </div>
 
-      <div className="media-row">
+      <div className="media-row" data-navbg="light">
         <img src="/images/PlantsRow1.webp" alt="Studio details" />
         <img src="/images/PlantsRow2.webp" alt="Studio details" />
       </div>

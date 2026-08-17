@@ -3,7 +3,7 @@ import { InstagramIcon, SpotifyIcon } from "./icons";
 
 export default function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer" data-navbg="dark">
       <div className="footer__social">
         <a href={SOCIAL.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
           <InstagramIcon size={22} />
