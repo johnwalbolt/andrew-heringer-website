@@ -3,6 +3,8 @@
   --ink: #1a1a1a;
   --muted: #6b6b6b;
   --light: #f5f5f5;
+  --title: #e4cfa3; /* earthy warm off-white fallback for display titles */
+  --body: #ece7dc; /* subtle warm off-white for body copy over imagery */
   --nav-h: 74px;
   --letter: 0.18em;
 }
@@ -62,9 +64,15 @@ img {
   font-size: 15px;
   letter-spacing: 0.22em;
   font-weight: 500;
-  color: #fff;
+  color: var(--title);
   text-transform: uppercase;
   white-space: nowrap;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+  transition: color 0.25s ease;
+}
+
+.nav__brand:hover {
+  color: #f8f0da;
 }
 
 .nav__menu {
@@ -83,14 +91,18 @@ img {
 .nav__link {
   font-size: 12.5px;
   letter-spacing: 0.14em;
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--title);
   text-transform: capitalize;
   transition: color 0.25s ease;
   white-space: nowrap;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+  padding-bottom: 3px;
+  border-bottom: 1px solid transparent;
 }
 
 .nav__link:hover {
-  color: #fff;
+  color: #f8f0da;
+  border-bottom-color: rgba(228, 207, 163, 0.8);
 }
 
 .nav__social {
@@ -102,13 +114,14 @@ img {
 
 .nav__social a {
   display: inline-flex;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--title);
+  filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 0.35));
   transition: color 0.25s ease, transform 0.25s ease;
 }
 
 .nav__social a:hover {
-  color: #fff;
-  transform: translateY(-1px);
+  color: #f8f0da;
+  transform: translateY(-2px);
 }
 
 .nav__toggle {
@@ -170,12 +183,47 @@ img {
   text-transform: uppercase;
   line-height: 1.15;
   margin-bottom: 26px;
+  color: var(--title);
+}
+
+/* Earthy gradient shared by every display heading */
+.hero__title,
+.section__title,
+.prose h2 {
+  background-image: linear-gradient(160deg, #f7f0dd 0%, #ecdcb8 55%, #ddc499 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Soft shadow only for headings sitting over imagery */
+.hero__title,
+.section__title {
+  filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.32));
+}
+
+/* Sound Bath keeps its vivid background at full saturation, but a soft radial
+   scrim behind the heading calms the surrounding warm curves so the title reads
+   as warm-cream as the other section titles instead of going gray. The edges of
+   the image (the bright curves) stay untouched. */
+.section--no-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 62% 52% at 50% 44%,
+    rgba(0, 0, 0, 0.62) 0%,
+    rgba(0, 0, 0, 0.34) 46%,
+    rgba(0, 0, 0, 0) 78%
+  );
 }
 
 .section__text {
   font-size: clamp(15px, 1.4vw, 18px);
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--body);
   max-width: 560px;
   margin: 0 auto 34px;
 }
@@ -208,6 +256,7 @@ img {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   line-height: 1.05;
+  color: var(--title);
 }
 
 .hero__subtitle {
@@ -215,7 +264,7 @@ img {
   font-size: clamp(15px, 2vw, 22px);
   font-weight: 300;
   letter-spacing: 0.12em;
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--body);
 }
 
 .hero__scroll {
@@ -455,10 +504,12 @@ img {
 }
 
 /* ---------- Section without overlay (full saturation) ---------- */
-.section--no-overlay .section__title,
+/* The radial scrim behind the heading handles legibility, so the title carries
+   only the subtle drop-shadow shared by every section title — no extra shadow.
+   The body copy keeps a single light shadow for safety over the vivid image. */
 .section--no-overlay .section__text,
 .section--no-overlay .eyebrow {
-  text-shadow: 0 2px 22px rgba(0, 0, 0, 0.65), 0 1px 4px rgba(0, 0, 0, 0.55);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
 
 .section--no-overlay .btn {
@@ -491,7 +542,6 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
 }
 
 .music__inner .btn {
@@ -566,7 +616,7 @@ img {
 
 .contact__panel .section__title {
   margin-bottom: 26px;
-  color: #fff;
+  color: var(--title);
 }
 
 .contact__panel .contact__form {
