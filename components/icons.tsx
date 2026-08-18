@@ -25,21 +25,37 @@ export function AppleIcon({ size = 18 }: { size?: number }) {
 }
 
 export function AmazonIcon({ size = 18 }: { size?: number }) {
-  // Amazon "smile" arrow
+  // Lowercase "a" with the smile arrow beneath it
   return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.9"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      <path d="M3.5 12.2c3 2.7 6.7 4 10.6 4 2.4 0 4.7-.5 6.9-1.6" />
-      <path d="M17.8 15.5l3.6-.9-.4 3.6" />
+    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true">
+      <text
+        x="12"
+        y="14.5"
+        textAnchor="middle"
+        fontSize="15"
+        fontWeight="700"
+        fontFamily="Arial, Helvetica, sans-serif"
+        fill="currentColor"
+        style={{ textTransform: "none" }}
+      >
+        a
+      </text>
+      <path
+        d="M4.2 17.6c3 2.3 6.3 3.2 9.1 2.5 1.6-.4 3-1 4.3-1.9"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M16.4 18.9l2-1.1 1.2 1.9"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
