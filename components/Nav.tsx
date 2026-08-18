@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { NAV_LINKS, SOCIAL } from "./site";
 import { InstagramIcon, SpotifyIcon, MenuIcon, CloseIcon } from "./icons";
@@ -8,6 +9,8 @@ import { InstagramIcon, SpotifyIcon, MenuIcon, CloseIcon } from "./icons";
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -16,8 +19,12 @@ export default function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // The homepage nav starts transparent and frosts on scroll; every other page
+  // keeps the frosted-glass background at all times.
+  const frosted = !isHome || scrolled;
+
   return (
-    <header className={`nav ${scrolled ? "nav--frost" : ""} ${open ? "nav--open" : ""}`}>
+    <header className={`nav ${frosted ? "nav--frost" : ""} ${open ? "nav--open" : ""}`}>
       <Link href="/" className="nav__brand" onClick={() => setOpen(false)}>
         Andrew Heringer
       </Link>

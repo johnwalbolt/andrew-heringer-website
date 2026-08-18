@@ -16,6 +16,70 @@ export function SpotifyIcon({ size = 20 }: { size?: number }) {
   );
 }
 
+export function AppleIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.05 12.04c-.03-2.6 2.12-3.85 2.22-3.91-1.21-1.78-3.1-2.02-3.77-2.05-1.61-.16-3.13.94-3.95.94-.81 0-2.07-.92-3.4-.9-1.76.03-3.37 1.02-4.27 2.59-1.82 3.16-.47 7.83 1.3 10.4.86 1.26 1.89 2.67 3.24 2.62 1.3-.05 1.79-.84 3.36-.84 1.56 0 2 .84 3.38.81 1.4-.02 2.28-1.28 3.14-2.55.98-1.46 1.39-2.87 1.41-2.94-.03-.02-2.71-1.04-2.74-4.13zM14.53 4.42c.71-.87 1.2-2.08 1.07-3.28-1.03.04-2.28.68-3.02 1.55-.66.77-1.24 2-1.08 3.18 1.15.09 2.32-.59 3.03-1.45z" />
+    </svg>
+  );
+}
+
+export function AmazonIcon({ size = 18 }: { size?: number }) {
+  // Amazon "smile" arrow
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M3.5 12.2c3 2.7 6.7 4 10.6 4 2.4 0 4.7-.5 6.9-1.6" />
+      <path d="M17.8 15.5l3.6-.9-.4 3.6" />
+    </svg>
+  );
+}
+
+export function YouTubeIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M23.5 6.2a3 3 0 0 0-2.11-2.12C19.5 3.56 12 3.56 12 3.56s-7.5 0-9.39.52A3 3 0 0 0 .5 6.2 31.1 31.1 0 0 0 0 12a31.1 31.1 0 0 0 .5 5.8 3 3 0 0 0 2.11 2.12c1.89.52 9.39.52 9.39.52s7.5 0 9.39-.52a3 3 0 0 0 2.11-2.12A31.1 31.1 0 0 0 24 12a31.1 31.1 0 0 0-.5-5.8zM9.6 15.6V8.4l6.2 3.6z" />
+    </svg>
+  );
+}
+
+export function BandcampIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M0 18.75l7.437-13.5H24l-7.437 13.5H0z" />
+    </svg>
+  );
+}
+
+export function GlobeIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18" />
+      <path d="M12 3c2.5 2.6 3.75 5.7 3.75 9s-1.25 6.4-3.75 9c-2.5-2.6-3.75-5.7-3.75-9s1.25-6.4 3.75-9z" />
+    </svg>
+  );
+}
+
 export function ChevronDown({ size = 26 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

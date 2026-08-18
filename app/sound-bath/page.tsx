@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
-import { SOCIAL } from "@/components/site";
+import { SOUND_BATH_PLATFORMS } from "@/components/site";
+import {
+  SpotifyIcon,
+  AppleIcon,
+  AmazonIcon,
+  YouTubeIcon,
+  BandcampIcon,
+  GlobeIcon,
+} from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "Sound Bath — Andrew Heringer",
@@ -23,29 +31,45 @@ export default function SoundBathPage() {
             style={{ width: "min(320px, 70vw)", margin: "0 auto 28px" }}
           />
           <p className="section__text">
-            An ambient music project of peaceful soundscapes for relaxation, mindfulness and
-            rest.
+            Sound Bath started as an experiment in minimalism and gentle ambient
+            soundscapes. As more listeners tuned in, the project expanded into a space for
+            intentional soundscapes for relaxation, mindfulness and rest.
           </p>
-          <a href={SOCIAL.spotify} target="_blank" rel="noopener noreferrer" className="btn">
-            Listen on Spotify
-          </a>
+
+          <div className="platforms">
+            <a href={SOUND_BATH_PLATFORMS.spotify} target="_blank" rel="noopener noreferrer" className="platform-btn">
+              <SpotifyIcon /> Spotify
+            </a>
+            <a href={SOUND_BATH_PLATFORMS.apple} target="_blank" rel="noopener noreferrer" className="platform-btn">
+              <AppleIcon /> Apple
+            </a>
+            <a href={SOUND_BATH_PLATFORMS.amazon} target="_blank" rel="noopener noreferrer" className="platform-btn">
+              <AmazonIcon /> Amazon
+            </a>
+            <a href={SOUND_BATH_PLATFORMS.youtube} target="_blank" rel="noopener noreferrer" className="platform-btn">
+              <YouTubeIcon /> YouTube
+            </a>
+            <a href={SOUND_BATH_PLATFORMS.bandcamp} target="_blank" rel="noopener noreferrer" className="platform-btn">
+              <BandcampIcon /> Bandcamp
+            </a>
+            <a href={SOUND_BATH_PLATFORMS.website} target="_blank" rel="noopener noreferrer" className="platform-btn">
+              <GlobeIcon /> Website
+            </a>
+          </div>
+
+          <div className="spotify-embed">
+            <iframe
+              title="Sound Bath on Spotify"
+              src="https://open.spotify.com/embed/playlist/4VUExlchVzZykM9X70fbSZ?utm_source=generator&theme=0"
+              width="100%"
+              height={352}
+              frameBorder={0}
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            />
+          </div>
         </div>
       </section>
-
-      <div className="prose" data-navbg="light">
-        <div className="prose__inner">
-          <p className="eyebrow">Ambient Soundscapes</p>
-          <h2>Space to Rest</h2>
-          <p>
-            Sound Bath is an ambient music project by Andrew Heringer — peaceful soundscapes
-            designed for relaxation, mindfulness and rest.
-          </p>
-          <p>
-            Slow-moving pads, gentle drones and natural textures create room to breathe, whether
-            you&apos;re meditating, working, or drifting off to sleep.
-          </p>
-        </div>
-      </div>
     </>
   );
 }

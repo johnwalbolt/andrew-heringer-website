@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { SOCIAL } from "@/components/site";
+import { GUEST_PLATFORMS } from "@/components/site";
+import { AmazonIcon, AppleIcon, SpotifyIcon, YouTubeIcon } from "@/components/icons";
 
 export const metadata: Metadata = {
   title: "The Guest and the Host — Andrew Heringer",
@@ -20,39 +21,50 @@ export default function GuestPage() {
           <p className="eyebrow">A Project by Andrew Heringer</p>
           <h1 className="section__title">The Guest and the Host</h1>
           <p className="section__text">
-            The indie-folk / singer-songwriter project of Andrew Heringer.
+            The Guest and the Host is the indie-folk project of songwriter and producer
+            Andrew Heringer. The music explores themes of connection, resilience, and
+            self-reflection that blends timeless soft rock influences with heartfelt
+            lyricism. With roots in folk, Americana, and pop, The Guest and the Host is
+            Heringer&rsquo;s outlet for authentic artistic expression.
           </p>
-          <a href={SOCIAL.spotify} target="_blank" rel="noopener noreferrer" className="btn">
-            Listen on Spotify
-          </a>
+          <div className="platforms">
+            <a href={GUEST_PLATFORMS.amazon} target="_blank" rel="noopener noreferrer" className="platform-btn">
+              <AmazonIcon /> Amazon
+            </a>
+            <a href={GUEST_PLATFORMS.apple} target="_blank" rel="noopener noreferrer" className="platform-btn">
+              <AppleIcon /> Apple
+            </a>
+            <a href={GUEST_PLATFORMS.spotify} target="_blank" rel="noopener noreferrer" className="platform-btn">
+              <SpotifyIcon /> Spotify
+            </a>
+            <a href={GUEST_PLATFORMS.youtube} target="_blank" rel="noopener noreferrer" className="platform-btn">
+              <YouTubeIcon /> YouTube
+            </a>
+          </div>
+
+          <div className="video-embed">
+            <iframe
+              src="https://www.youtube.com/embed/WApr9VsXJ-8"
+              title="The Guest and the Host — Let Me Know What You're Feeling (Official Video)"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              loading="lazy"
+            />
+          </div>
+
+          <div className="spotify-embed">
+            <iframe
+              title="The Guest and the Host on Spotify"
+              src="https://open.spotify.com/embed/playlist/27LocyaZ0lbB0juHIzDgID?utm_source=generator&theme=0"
+              width="100%"
+              height={352}
+              frameBorder={0}
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+            />
+          </div>
         </div>
       </section>
-
-      <div className="prose" data-navbg="light">
-        <div className="prose__inner">
-          <p className="eyebrow">The Music</p>
-          <h2>Songs and Stories</h2>
-          <p>
-            The Guest and the Host is the indie-folk / singer-songwriter project of Andrew
-            Heringer — a home for intimate songwriting, warm arrangements and honest, layered
-            vocals.
-          </p>
-          <p>
-            Built from years of playing in bands and collaborating with other artists, the
-            project blends acoustic textures with the ambient sensibility that runs through all
-            of Andrew&apos;s work.
-          </p>
-        </div>
-      </div>
-
-      <div className="media-row" data-navbg="light">
-        <img src="/images/TGATH-Andrew.webp" alt="Andrew Heringer" />
-        <img src="/images/GuestImage.webp" alt="The Guest and the Host" />
-      </div>
-
-      <div className="media-full" data-navbg="light">
-        <img src="/images/Band.webp" alt="The band performing live" />
-      </div>
     </>
   );
 }
