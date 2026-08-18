@@ -75,18 +75,11 @@ export default function Home() {
       {/* The Guest and the Host */}
       <section
         id="guest"
-        className="section section--fixed"
+        className="section section--fixed guest-home"
         data-navbg="dark"
-        style={{ backgroundImage: "url(/images/HomeGuestBackground.webp)" }}
       >
-        <div className="section__overlay" />
-        <div className="section__inner guest__inner">
+        <div className="section__inner">
           <h2 className="section__title">The Guest and the Host</h2>
-          <img
-            className="guest__figure"
-            src="/images/TGATH-Andrew.webp"
-            alt="Andrew Heringer seated with arms outstretched"
-          />
           <p className="section__text">
             The Guest and the Host is the indie-folk / singer-songwriter project of Andrew
             Heringer.
@@ -102,7 +95,7 @@ export default function Home() {
         id="sound-bath"
         className="section section--fixed section--no-overlay"
         data-navbg="dark"
-        style={{ backgroundImage: "url(/images/HomeSoundBathBackground.webp)" }}
+        style={{ backgroundImage: "url(/images/ConnectBackground.webp)" }}
       >
         <div className="section__inner">
           <h2 className="section__title">Sound Bath</h2>
@@ -119,11 +112,10 @@ export default function Home() {
       {/* About Andrew */}
       <section
         id="about"
-        className="section section--fixed"
+        className="section section--fixed about-home"
         data-navbg="dark"
         style={{ backgroundImage: "url(/images/aboutmain.webp)" }}
       >
-        <div className="section__overlay" />
         <div className="section__inner">
           <h2 className="section__title">About Andrew</h2>
           <p className="section__text">

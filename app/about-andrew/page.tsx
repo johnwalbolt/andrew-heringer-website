@@ -1,61 +1,73 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About Andrew — Andrew Heringer",
   description:
-    "Andrew Heringer is a music producer, singer and multi-instrumentalist working out of his home studio in Orinda, CA.",
+    "Andrew Heringer is a singer, songwriter, and producer from Northern California, releasing ambient music as Sound Bath and singer-songwriter material as The Guest and the Host.",
 };
 
 export default function AboutPage() {
   return (
     <>
       <section
-        className="section"
+        className="section hero--dark"
         data-navbg="dark"
         style={{ backgroundImage: "url(/images/AboutBackground.webp)" }}
       >
         <div className="section__overlay" />
-        <div className="section__inner">
-          <p className="eyebrow">Music Producer &amp; Singer/Songwriter</p>
-          <h1 className="section__title">About Andrew</h1>
-          <p className="section__text">
-            Andrew currently works out of his home studio in Orinda, CA.
-          </p>
+        <div className="section__inner split__inner">
+          <div className="split__row split__row--top">
+            <div className="split__media">
+              <img src="/images/AboutAndrew.webp" alt="Andrew Heringer" />
+            </div>
+            <div className="split__copy">
+              <h1 className="section__title">About Andrew</h1>
+              <p className="section__text section__text--long">
+                Andrew Heringer is a singer, songwriter, and producer from Northern California,
+                currently releasing ambient music as Sound Bath and singer-songwriter material
+                as The Guest and the Host. A founding member of the band Milo Greene, he toured
+                across North America and Europe throughout the 2010s, with performances on The
+                Late Show with David Letterman, The Tonight Show with Jay Leno, and Conan
+                O&rsquo;Brien, as well as appearances at Lollapalooza, Bonnaroo, and Outside
+                Lands. Milo Greene opened for The Civil Wars, Foster the People, Bombay Bicycle
+                Club, Cold War Kids, Stars, and The Walkmen, and toured alongside Lucius and
+                Bahamas. Heringer&rsquo;s songs have been featured in the television shows
+                Grey&rsquo;s Anatomy, 13 Reasons Why, Shameless, and many more. As a musical
+                collaborator, he&rsquo;s produced, written, recorded and mixed music for many
+                other artists such as Damien Rice, Madi Diaz, and Joshua Radin. From his Bay
+                Area home studio, he now focuses on ambient wellness music and remains a
+                passionate advocate for independent artistry.
+              </p>
+            </div>
+          </div>
+
+          <div className="split__below">
+            <div className="spotify-embed">
+              <iframe
+                title="Andrew Heringer on Spotify"
+                src="https://open.spotify.com/embed/playlist/6pHE1ji6B5ozIjXdlh3pXd?utm_source=generator&theme=0"
+                width="100%"
+                height={352}
+                frameBorder={0}
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              />
+            </div>
+
+            <div className="spotify-embed">
+              <iframe
+                title="Andrew Heringer on Spotify"
+                src="https://open.spotify.com/embed/playlist/1kWbGGLq7u5w3gBfvQes2X?utm_source=generator&theme=0"
+                width="100%"
+                height={352}
+                frameBorder={0}
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
       </section>
-
-      <div className="prose" data-navbg="light">
-        <div className="prose__inner">
-          <img
-            src="/images/AboutAndrew.webp"
-            alt="Andrew Heringer"
-            style={{ width: "min(360px, 80vw)", margin: "0 auto 40px", borderRadius: 2 }}
-          />
-          <h2>The Story</h2>
-          <p>
-            Andrew Heringer is a music producer, singer and multi-instrumentalist who has built
-            a career playing in bands, creating ambient music, collaborating with other musical
-            artists and making music for tv/film.
-          </p>
-          <p>
-            His work spans the indie-folk songwriting of{" "}
-            <Link href="/the-guest-and-the-host" style={{ textDecoration: "underline" }}>
-              The Guest and the Host
-            </Link>{" "}
-            and the peaceful ambient soundscapes of{" "}
-            <Link href="/sound-bath" style={{ textDecoration: "underline" }}>
-              Sound Bath
-            </Link>
-            . Andrew currently works out of his home studio in Orinda, CA.
-          </p>
-        </div>
-      </div>
-
-      <div className="media-row" data-navbg="light">
-        <img src="/images/PlantsRow1.webp" alt="Studio details" />
-        <img src="/images/PlantsRow2.webp" alt="Studio details" />
-      </div>
     </>
   );
 }

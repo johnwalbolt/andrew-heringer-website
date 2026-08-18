@@ -229,30 +229,100 @@ img {
   filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.32));
 }
 
-/* Sound Bath keeps its vivid background at full saturation, but a soft radial
-   scrim behind the heading calms the surrounding warm curves so the title reads
-   as warm-cream as the other section titles instead of going gray. The edges of
-   the image (the bright curves) stay untouched. */
-.section--no-overlay::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse 62% 52% at 50% 44%,
-    rgba(0, 0, 0, 0.62) 0%,
-    rgba(0, 0, 0, 0.34) 46%,
-    rgba(0, 0, 0, 0) 78%
-  );
-}
-
 .section__text {
   font-size: clamp(15px, 1.4vw, 18px);
   font-weight: 300;
   color: var(--body);
   max-width: 560px;
   margin: 0 auto 34px;
+}
+
+/* Longer bio copy: wider column, slightly smaller for comfortable reading */
+.section__text--long {
+  max-width: 720px;
+  font-size: clamp(14px, 1.25vw, 16px);
+  line-height: 1.85;
+}
+
+/* ---------- Split hero: image left, text right ---------- */
+/* Darker scrim so the copy stays highly readable */
+.hero--dark .section__overlay {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.66) 0%, rgba(0, 0, 0, 0.76) 100%);
+}
+
+.split__inner {
+  max-width: 1080px;
+}
+
+.split__row {
+  display: flex;
+  align-items: center;
+  gap: clamp(28px, 5vw, 60px);
+  text-align: left;
+}
+
+/* Align the image and copy by their top edges instead of centering */
+.split__row--top {
+  align-items: flex-start;
+}
+
+.split__media {
+  flex: 0 0 clamp(240px, 34%, 380px);
+}
+
+.split__media img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  filter: drop-shadow(0 22px 46px rgba(0, 0, 0, 0.5));
+}
+
+.split__copy {
+  flex: 1;
+}
+
+.split__copy .eyebrow,
+.split__copy .section__title {
+  text-align: left;
+}
+
+.split__copy .section__text {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.split__copy .platforms {
+  justify-content: flex-start;
+}
+
+.split__below {
+  display: grid;
+  gap: 20px;
+  max-width: 720px;
+  margin: clamp(36px, 5vw, 56px) auto 0;
+}
+
+@media (max-width: 760px) {
+  .split__row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .split__media {
+    flex: 0 0 auto;
+    width: min(300px, 80%);
+  }
+
+  .split__copy .eyebrow,
+  .split__copy .section__title,
+  .split__copy .section__text {
+    text-align: center;
+  }
+
+  .split__copy .platforms {
+    justify-content: center;
+  }
 }
 
 /* ---------- Hero ---------- */
@@ -503,7 +573,7 @@ img {
 
 /* ---------- Footer ---------- */
 .footer {
-  background: #1a1a1a;
+  background: #000;
   color: rgba(255, 255, 255, 0.7);
   text-align: center;
   padding: 44px 24px;
@@ -671,10 +741,40 @@ img {
 }
 
 /* ---------- Guest section figure ---------- */
-.guest__figure {
-  width: min(520px, 84%);
-  margin: 10px auto 30px;
-  filter: drop-shadow(0 26px 44px rgba(0, 0, 0, 0.5));
+/* Homepage Guest section: the figure is layered over the scene as a second
+   background image (drawn on top of the landscape background) */
+.guest-home {
+  background-image: url(/images/TGATH-Andrew.webp), url(/images/HomeGuestBackground.webp);
+  background-repeat: no-repeat, no-repeat;
+  background-position: center 88%, center center;
+  background-size: auto 58%, cover;
+}
+
+@media (max-width: 700px) {
+  .guest-home {
+    background-size: auto 40%, cover;
+  }
+}
+
+/* Homepage About section: no overlay gradient, but a soft shadow behind the
+   text so it stays readable over the background */
+.about-home .section__title {
+  filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.6));
+}
+
+.about-home .section__text,
+.about-home .eyebrow {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* Homepage Guest section keeps its bright background; a soft shadow behind the
+   title and copy keeps them readable without a darkening overlay */
+.guest-home .section__title {
+  filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.6));
+}
+
+.guest-home .section__text {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
 /* ---------- Contact section ---------- */
