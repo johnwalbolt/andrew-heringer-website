@@ -3,8 +3,9 @@ export const SOCIAL = {
   spotify: "https://open.spotify.com/user/dawsonheringer",
 };
 
-// TODO: replace with Andrew's real contact email before launch.
-export const CONTACT_EMAIL = "hello@andrewheringer.com";
+// Web3Forms access key — public by design; submissions are emailed to the
+// address registered at web3forms.com for this key.
+export const WEB3FORMS_ACCESS_KEY = "08968531-322c-4685-9d5e-191e7f939416";
 
 // Streaming platforms for Sound Bath.
 export const SOUND_BATH_PLATFORMS = {
