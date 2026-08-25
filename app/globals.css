@@ -323,6 +323,21 @@ img {
   .split__copy .platforms {
     justify-content: center;
   }
+
+  /* About page only: photo fills the width, header + body left-aligned */
+  .split__row--top {
+    text-align: left;
+  }
+
+  .split__row--top .split__media {
+    width: 100%;
+  }
+
+  .split__row--top .split__copy .eyebrow,
+  .split__row--top .split__copy .section__title,
+  .split__row--top .split__copy .section__text {
+    text-align: left;
+  }
 }
 
 /* ---------- Hero ---------- */
@@ -863,11 +878,11 @@ img {
   }
 }
 
-/* Phones: widen the form so it's only ~20px from the screen edges */
+/* Phones: widen the form, keeping a small gap beside the card */
 @media (max-width: 600px) {
   .section.contact {
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 16px;
+    padding-right: 16px;
   }
 
   /* Let the panel fill the width instead of shrink-wrapping (grid is centered) */
@@ -877,7 +892,7 @@ img {
 
   .contact__panel {
     max-width: none;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 18px;
+    padding-right: 18px;
   }
 }
