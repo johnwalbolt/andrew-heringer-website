@@ -515,6 +515,26 @@ img {
   color: rgba(255, 255, 255, 0.9);
 }
 
+/* Confirmation panel shown in place of the form after a successful send */
+.contact__success {
+  text-align: center;
+  padding: 18px 0;
+}
+
+.contact__success-title {
+  font-size: clamp(20px, 2.4vw, 26px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--title);
+  margin-bottom: 14px;
+}
+
+.contact__success-text {
+  font-weight: 300;
+  color: var(--body);
+  margin-bottom: 26px;
+}
+
 /* ---------- Content page blocks ---------- */
 .prose {
   background: var(--bg);
@@ -840,5 +860,24 @@ img {
 
   .contact__media img {
     max-width: 260px;
+  }
+}
+
+/* Phones: widen the form so it's only ~20px from the screen edges */
+@media (max-width: 600px) {
+  .section.contact {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  /* Let the panel fill the width instead of shrink-wrapping (grid is centered) */
+  .contact__grid {
+    align-items: stretch;
+  }
+
+  .contact__panel {
+    max-width: none;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }

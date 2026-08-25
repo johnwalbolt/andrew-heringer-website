@@ -10,8 +10,7 @@ export default function ContactForm() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
+    const data = new FormData(e.currentTarget);
     data.append("access_key", WEB3FORMS_ACCESS_KEY);
     if (!String(data.get("subject") || "").trim()) {
       data.set("subject", "New message from andrewheringer.com");
@@ -25,15 +24,25 @@ export default function ContactForm() {
         body: data,
       });
       const json = await res.json();
-      if (json.success) {
-        setStatus("success");
-        form.reset();
-      } else {
-        setStatus("error");
-      }
+      setStatus(json.success ? "success" : "error");
     } catch {
       setStatus("error");
     }
+  }
+
+  // On success, replace the whole form with a clear confirmation so it can't be missed.
+  if (status === "success") {
+    return (
+      <div className="contact__success" role="status" aria-live="polite">
+        <p className="contact__success-title">Message sent</p>
+        <p className="contact__success-text">
+          Thanks for reaching out — Andrew will get back to you soon.
+        </p>
+        <button type="button" className="btn" onClick={() => setStatus("idle")}>
+          Send another
+        </button>
+      </div>
+    );
   }
 
   return (
@@ -67,11 +76,6 @@ export default function ContactForm() {
         {status === "submitting" ? "Sending…" : "Submit"}
       </button>
 
-      {status === "success" && (
-        <p className="form-note">
-          Thanks — your message has been sent. Andrew will get back to you soon.
-        </p>
-      )}
       {status === "error" && (
         <p className="form-note">
           Something went wrong sending your message. Please try again, or reach out on{" "}
